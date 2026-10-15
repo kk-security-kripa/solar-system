@@ -2,7 +2,7 @@
    on: [push]
    jobs:
      call-ci:
-       uses: kk-security/.github/.github/workflows/reusable-ci.yml@main
+       uses: kk-security-kripa/.github/.github/workflows/reusable-ci.yml@main
        with:
          node-version: '20'
        secrets:
