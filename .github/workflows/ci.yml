@@ -1,17 +1,16 @@
-   name: CI
-   on: [push]
-   jobs:
-     call-ci:
-       uses: kk-security-kripa/.github/.github/workflows/reusable-ci.yml@main
-       with:
-         node-version: '20'
-       secrets:
-         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+name: CI
+on: [push]
+jobs:
+  call-ci:
+    uses: kk-security-kripa/.github/.github/workflows/reusable-ci.yml@main
+    with:
+      node-version: '20'
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-     test-composite-action:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: kk-security-kripa/lab-actions/setup-env@main
-           with:
-             environment: 'staging'
-         - uses: some-random/action@v2
+  test-composite-action:
+    runs-on: [self-hosted, ubuntu-private]
+    steps:
+      - uses: kk-security-kripa/lab-actions/setup-env@main
+        with:
+          environment: 'staging'
